@@ -9,21 +9,36 @@ class Line
   end
 
   def join(person)
+    members.push(person)
   end
 
   def leave(person)
+    members.delete_if { |member| member == person }
+
   end
 
   def front
+    members.first
   end
 
   def middle
+    total_members = members.length
+    middle_postion = (total_members/2.to_f).ceil
+    members[middle_postion]
   end
 
   def back
+    members.last
   end
 
   def search(person)
+    result = nil
+    members.each do |member|
+      if member === person
+        result = member
+      end
+    end
+    return result
   end
 
   private
