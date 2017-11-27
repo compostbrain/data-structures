@@ -24,7 +24,6 @@ ll_time = Benchmark.realtime do
     ll.add_to_tail(node)
     index += 1
   end
-  binding.pry
 end
 
 puts "Time elapsed adding 10,000 nodes to a linked list: #{ll_time * 1000} milliseconds"
@@ -36,12 +35,27 @@ end
 puts "Time elapsed accessing the 5000 item in array: #{array_access_time * 1000} milliseconds"
 
 ll_access_time = Benchmark.realtime do
-  binding.pry
   current = ll.head
-  until current.next == 4999
+  until current.next.data == 5000
     current = current.next
   end
   puts current.data
 end
 
 puts "Time elapsed accessing the 5000 item in linked list: #{ll_access_time * 1000} milliseconds"
+
+a_removal_time = Benchmark.realtime do
+  a.delete(4999)
+end
+
+puts "Time elapsed removing the 5000 item in array: #{a_removal_time * 1000} milliseconds"
+
+ll_removal_time = Benchmark.realtime do
+  node = ll.head
+  until node.next.data == 5000
+    node = node.next
+  end
+  ll.delete(node)
+end
+
+puts "Time elapsed removing the 5000 item in linked list: #{ll_removal_time * 1000} milliseconds"
