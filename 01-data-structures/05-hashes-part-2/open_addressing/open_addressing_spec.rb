@@ -1,10 +1,11 @@
 include RSpec
-
+require "pry"
 require_relative 'node'
 require_relative 'open_addressing'
 
 RSpec.describe OpenAddressing, type: Class do
   let(:star_wars_movies) { OpenAddressing.new(6) }
+
 
   before do
     star_wars_movies["Star Wars: The Phantom Menace"] = "Number One"
