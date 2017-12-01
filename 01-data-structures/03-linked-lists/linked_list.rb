@@ -26,7 +26,8 @@ class LinkedList
       until current.next == current_tail
         current = current.next
       end
-      add_to_tail(current)
+      current.next = nil
+      self.tail = current
     else
       self.tail = nil
       self.head = nil
