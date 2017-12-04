@@ -1,4 +1,4 @@
-class Node
+class HeapNode
   attr_accessor :title
   attr_accessor :rating
   attr_accessor :left

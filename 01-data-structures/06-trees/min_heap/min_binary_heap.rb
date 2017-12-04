@@ -1,4 +1,4 @@
-require_relative 'node'
+require_relative 'heap_node'
 
 class MinBinaryHeap
 
@@ -84,13 +84,13 @@ class MinBinaryHeap
 
         swap(last_node, node)
         # delete last node
-        last_node.title = nil
-        last_node.rating = nil
-        last_node = nil
-        if node.parent.nil? || node.value > node.parent.value
-          sift_down(node)
+        node.title = nil
+        node.rating = nil
+        node = nil
+        if last_node.parent.nil? || last_node.value > last_node.parent.value
+          sift_down(last_node)
         else
-          sift_up(node)
+          sift_up(last_node)
         end
 
       end
@@ -151,7 +151,7 @@ class MinBinaryHeap
       return
     else
       swap(node.parent, node)
-      sift_up(node)
+      sift_up(node.parent)
     end
   end
 
@@ -163,7 +163,7 @@ class MinBinaryHeap
       if node.value > left_child_value || node.value > right_child_value
         left_child_value < right_child_value ? smallest_child = node.left : smallest_child = node.right
         swap(node, smallest_child)
-        sift_down(node)
+        sift_down(smallest_child)
       else
         return
       end
