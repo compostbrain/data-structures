@@ -1,0 +1,5 @@
+
+When an instance of the Line class is initialized an empty member array is created.  An array is an ideal data structure to model a line as it keeps track of a list ordered by position.  The line class includes methods to add members(#join) to the list, remove members(#leave), query the front(#front), middle(#middle) and last(#back) position, as well as search(#search) by a value(returning the value if it is in the member array or nil if not). Other real world data that the Line class might represent could include any type of queue where position is important.
+
+
+The data structure for pixels and screen classes are simple to access and manipulate.  Assigning a variable to a Pixel instance with color inputs and x and y coordinates allows a developer to then add it to a Screen class instance using the Pixel variable name and x and y coordinates.  Using the at method for the Screen class you can retrieve a pixel by using x and y parameters.  The pixels are stored in an array.  Other real world data that might be stored in this type of structure might include a social media graph.  
