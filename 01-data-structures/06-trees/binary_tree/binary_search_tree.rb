@@ -39,10 +39,10 @@ class BinarySearchTree
   end
 
   # Breadth First Search
-  def printf(children=nil)
+  def print(children=nil)
     queue = [@root]
     result = []
-    while queue.length > 0
+    while queue.size > 0
       new_root = queue.shift
       if new_root.left != nil
         queue.push(new_root.left)
