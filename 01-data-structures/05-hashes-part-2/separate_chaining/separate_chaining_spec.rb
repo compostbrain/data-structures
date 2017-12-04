@@ -1,5 +1,5 @@
 include RSpec
-
+require "pry"
 require_relative 'separate_chaining'
 
 RSpec.describe SeparateChaining, type: Class do
@@ -62,7 +62,7 @@ RSpec.describe SeparateChaining, type: Class do
       expect(h.load_factor == 0).to be true
       h["key"] = "value"
       h["keytwo"] = "value"
-
+      # binding.pry
       # Load factor should be .5 when two items are added
       expect(h.load_factor).to eq 0.5
       h["keytwo"] = "value"
