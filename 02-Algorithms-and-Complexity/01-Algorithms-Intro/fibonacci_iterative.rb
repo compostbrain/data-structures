@@ -6,7 +6,7 @@ def fib(n)
   counter = 0
   fib_0 = 0 #   SET fib_0 to 0
   fib_1 = 1 #   SET fib_1 to 1
-  while counter < n #   FOR each value from 0 to one less than n
+  while counter < n - 1 #   FOR each value from 0 to one less than n
     temp = fib_0 #    SET temp to fib_0
     fib_0 = fib_1 #     ASSIGN fib_1 to fib_0
     fib_1 = temp + fib_1 #     COMPUTE temp + fib_1, ASSIGN to fib_1
@@ -25,3 +25,6 @@ puts fib(6)
 puts fib(7)
 puts fib(8)
 puts fib(9)
+puts fib(10)
+puts fib(11)
+puts fib(12)

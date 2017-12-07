@@ -1,0 +1,28 @@
+
+Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+It would take seven iterations to find the value G.
+
+Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+Using binary search it would take 3 iterations.
+
+Calculate fib(10), fib(11), fib(12) by hand.
+
+n    fib(n-2)   fib(n-1)    fib(n)
+-----------------------------------
+10    21          34          55
+
+11    34          55          89
+
+12    55          89          144
+
+
+Given an unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Would you use an iterative or recursive solution? Explain your reasoning.
+
+I would choose linear search since binary search requires that the collection be sorted.  In ruby an iterative solution would be faster since the language is not optimized for recursive function calls.
+
+
+Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Would you use an iterative or recursive solution? Explain your reasoning.
+
+In the case of a sorted collection a binary search would be preferred as the worst case time would O(log n). Again iterative would be more efficient in Ruby due to the overhead needed to operate recursively.
