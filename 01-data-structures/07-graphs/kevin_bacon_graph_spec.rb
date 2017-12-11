@@ -23,6 +23,7 @@ RSpec.describe KevinBaconGraph, type: Class do
   let :some_guy_5 { Node.new(name: "Some Guy 5") }
   let :some_guy_6 { Node.new(name: "Some Guy 6") }
   let :some_guy_7 { Node.new(name: "Some Guy 7") }
+  let :some_guy_8 { Node.new(name: "Some Guy 8") }
 
   let :dragnet {
                   Film.new(
@@ -145,6 +146,7 @@ RSpec.describe KevinBaconGraph, type: Class do
         some_guy_5,
         some_guy_6,
         some_guy_7,
+        some_guy_8,
       ],
       films: [
         dragnet,
@@ -188,12 +190,23 @@ RSpec.describe KevinBaconGraph, type: Class do
       it 'returns path when 6 or less lead to Kevin Bacon' do
         expect(test_graph.find_kevin_bacon(some_guy_1)).to match_array([beyond_all_boundaries.name])
       end
+      it 'returns path when 6 or less lead to Kevin Bacon' do
+        expect(test_graph.find_kevin_bacon(some_guy_3)).to match_array([beyond_all_boundaries.name, some_movie_2.name, some_movie_1.name])
+      end
     end
+
     context 'kevin_bacon_number > 6' do
       it "notifies the user that it has reached the max" do
         result = test_graph.find_kevin_bacon(some_guy_7)
         expected =  "No Connection Found"
         expect(result).to eq(nil)
+      end
+    end
+    context 'no path to Kevin Bacon' do
+      it "notifies the user that no path exists" do
+        result = test_graph.find_kevin_bacon(some_guy_8)
+        expected =  "No Path to Kevin Bacon"
+        expect(result).to eq(expected)
       end
     end
   end
