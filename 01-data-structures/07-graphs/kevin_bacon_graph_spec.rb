@@ -16,6 +16,7 @@ RSpec.describe KevinBaconGraph, type: Class do
   let :bill_cosby { Node.new(name: "Bill Cosby") }
   let :tom_courtenay { Node.new(name: "Tom Courtenay") }
   let :gary_oldman { Node.new(name: "Gary Oldman") }
+  let :elizabeth_perkins { Node.new(name: "Elizabeth Perkins") }
   let :some_guy_1 { Node.new(name: "Some Guy 1") }
   let :some_guy_2 { Node.new(name: "Some Guy 2") }
   let :some_guy_3 { Node.new(name: "Some Guy 3") }
@@ -128,6 +129,16 @@ RSpec.describe KevinBaconGraph, type: Class do
                       ]
                     )
                   }
+  let :big{
+                  Film.new(
+                    name: "Big",
+                    actors: [
+                      dan_aykroyd,
+                      tom_hanks,
+                      elizabeth_perkins
+                      ]
+                    )
+                  }
 
   let :test_graph {
     KevinBaconGraph.new(
@@ -138,6 +149,7 @@ RSpec.describe KevinBaconGraph, type: Class do
         joe_don_baker,
         lily_tomlin,
         dan_aykroyd,
+        elizabeth_perkins,
         christopher_plummer,
         some_guy_1,
         some_guy_2,
@@ -152,6 +164,7 @@ RSpec.describe KevinBaconGraph, type: Class do
         dragnet,
         beyond_all_boundaries,
         apollo_13,
+        big,
         criminal_law,
         leonard_pt_6,
         some_movie_1,
@@ -170,7 +183,7 @@ RSpec.describe KevinBaconGraph, type: Class do
   describe "#populate_edges" do
     it "adds films to the film_actor_hash" do
       expect(some_guy_1.film_actor_hash.keys).to match_array(["some_movie_1", "Beyond All Boundaries" ])
-      expect(tom_hanks.film_actor_hash.keys).to match_array(["Dragnet", "Apollo 13"])
+      expect(tom_hanks.film_actor_hash.keys).to match_array(["Dragnet", "Apollo 13", "Big"])
     end
 
     it 'does not add films to the hash that do not include the actor' do
@@ -191,7 +204,10 @@ RSpec.describe KevinBaconGraph, type: Class do
         expect(test_graph.find_kevin_bacon(some_guy_1)).to match_array([beyond_all_boundaries.name])
       end
       it 'returns path when 6 or less lead to Kevin Bacon' do
-        expect(test_graph.find_kevin_bacon(some_guy_3)).to match_array([beyond_all_boundaries.name, some_movie_2.name, some_movie_1.name])
+        expect(test_graph.find_kevin_bacon(some_guy_3)).to eq([some_movie_2.name, some_movie_1.name, beyond_all_boundaries.name])
+      end
+      it 'returns path when 6 or less lead to Kevin Bacon' do
+        expect(test_graph.find_kevin_bacon(dan_aykroyd)).to match_array([apollo_13.name, dragnet.name])
       end
     end
 
