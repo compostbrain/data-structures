@@ -1,0 +1,35 @@
+Describe an analogy for relating an algorithm that has efficiency O(1) and another algorithm that has O(2n).
+
+An algorithm that has O(1) is a lightening bolt and an algorithm that has O(2n) is a sloth.
+
+In plain English, what is the best case scenario for binary search?
+
+Best case scenario for a binary search is finding the item on the first iteration.
+
+In plain English, what is the worst-case scenario for binary search?
+
+The worst case for binary search is linear time meaning that however many items you have to search is the upper bound for time complexity.
+
+In plain English, what is the bounded-case scenario for binary search?
+
+The bounded case for binary search is logarithmic time.
+
+Create a graph using the data below. Here's a CSV with the values you'll need.
+What is the limit of the function above as n approaches infinity?
+
+The limit is infinity.
+
+What is the Big-O of an algorithm that has the data points above?
+
+O(n^2)
+
+Write a Ruby method that takes a number n. This method must print the worst-case number of iterations for linear search to find an item in collections of size one to n. Use it to generate a table of worst-case iterations of collections up to size 10.
+
+Create a graph from the output using Google Sheets or other graphing software. Analyze the graph and denote its Big-O somewhere on the graph.
+
+What is the Big-O of binary search?
+O(log n)
+What is the Big-Ω of binary search?
+O(1)
+What is the Big-Ө of binary search?
+O(log n)

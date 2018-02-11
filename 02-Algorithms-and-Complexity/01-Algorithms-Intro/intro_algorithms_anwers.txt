@@ -1,0 +1,37 @@
+## Calculating a tip:
+
+DEF tip_calculation(bill_total, generosity)
+  CASE generosity OF
+    low : return bill_total * 0.10
+    normal : return bill_total * 0.15
+    high : return bill_total * 0.20
+  ENDCASE
+ENDDEF
+
+
+## Determining what to wear:
+
+DEF determine_outfit(mood)
+  CASE mood OF
+    happy : puts "Wear bright colors"
+    sad   : puts "Wear something dark"
+    blase : puts "Just pick something, anything..."
+  ENDCASE
+ENDDEF
+
+
+## Getting to work:
+
+DEF get_to_work(transport_method, route)
+
+  CASE transport_method OF
+    bike : set method to peddle
+    car : set method to drive
+    train : set method to ride_train
+  ENDCASE
+
+  REPEAT
+    execute method on route
+  UNTIL route completed
+
+ENDDEF
