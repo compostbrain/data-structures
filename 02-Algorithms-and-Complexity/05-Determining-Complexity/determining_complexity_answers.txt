@@ -1,6 +1,6 @@
 1. This algorithm is performed in constant time or O(1).  This is because no matter the input it performs the same amount of iterations.
 2. This algorithm completes in linear time or O(n).  This is because the iterations increase at the same rate as the input size.
 3. This algorithm has a worst case run time of O(n). The data size = n and we increase the iterations based on the size of n.
-4. This algorithm is O(1) since it has a constant runtime regardless of input.
+4. This algorithm is O(2^n).  It is a naive version of the Fibonacci sequence using recursion.  Drawing the recursion tree will allow us to intuitively deduce this. 
 5. This algorithm runs a loop n-1 times.  Since we drop the coefficients the big o is O(n).
 6. This algorithm is O(n^2).  This is because it is a version of quicksort.  In the case of the pivot always happens to be the largest or smallest element in the list each recursive call will process a list size one less than the previous resulting in the rare runtime of n^2.
